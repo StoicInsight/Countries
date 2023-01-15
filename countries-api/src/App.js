@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import Navigation from "./components/Navigation/Navigation";
+import Search from "./components/Search/Search";
+import Countries from "./components/Countries/Countries";
 
-function App() {
+function App() {  
+
+  const [ countries, SetCountries ] = useState([])
+
+  useEffect(() => {
+    fetch('https://restcountries.com/v3.1/region/europe')
+      .then(res => res.json())
+      .then(data => SetCountries(data))
+  },[App])
+
+
+
+  console.log("State",countries)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation/>
+      <Search/>
+      <Countries countries={countries}/>
     </div>
   );
 }

@@ -1,11 +1,15 @@
-import React from 'react'
+import {useState, useEffect} from 'react'
+import './Search.scss'
 
-const Search = () => {
+const Search = ({filter}) => {
+
   return (
-    <div>
+    <div className='search'>
       <input 
         type="search"
-        placeholder='Search Countries'
+        placeholder='Search For Countries'
+        className='search-bar'
+        onChange={filter}
       />
     </div>
   )

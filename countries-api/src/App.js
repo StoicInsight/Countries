@@ -10,9 +10,8 @@ function App() {
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/region/europe')
       .then(res => res.json())
-      .then(data => SetCountries(data[1-7]))
+      .then(data => SetCountries(data.slice(0, 4)))
   },[App])
-
 
 
   console.log("State",countries)

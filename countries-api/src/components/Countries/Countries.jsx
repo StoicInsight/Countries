@@ -1,14 +1,11 @@
 import React from 'react'
 import './Countries.styles.scss'
+import CountryItem from '../Country-Item/Country-Item'
 
 const Countries = ({countries}) => {
   return (
     <div className='countries-wrap'>
-      {countries.map((country) => {
-        return (
-          <div><img/></div>
-        )
-      })}
+      <CountryItem countries={countries}/>
     </div>
   )
 }

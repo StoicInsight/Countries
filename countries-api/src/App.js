@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/region/europe')
       .then(res => res.json())
-      .then(data => SetCountries(data))
+      .then(data => SetCountries(data[1-7]))
   },[App])
 
 

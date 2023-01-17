@@ -7,7 +7,7 @@ const Countries = ({countries, filter}) => {
 
   return (
     <div className='countries-wrap'>
-      <Search filter={filter}/>
+      {/* <Search filter={filter}/> */}
       <CountryItem countries={countries}/>
     </div>
   )

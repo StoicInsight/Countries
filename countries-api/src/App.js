@@ -5,34 +5,39 @@ import Countries from "./components/Countries/Countries";
 
 function App() {  
 
+  const [ search, setSearch ] = useState('')
   const [ countries, SetCountries ] = useState([])
-  const [ filter, setFilter ] = useState(countries)
+  const [ filteredCountries, setFilteredCountries ] = useState(countries)
 
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/all')
       .then(res => res.json())
-      .then(data => SetCountries(data.slice(0, 10)))
+      .then(data => SetCountries(data.slice(0, 30)))
   },[App])
 
-  const filterCountries = async(e) => {
-    const filtered = e.target.value
+  // useEffect(() => {
+  //   const filteredCountries = countries.filter((country) => {
+  //     return country.subregion.toLocaleLowerCase().includes(search)
+  //   })
 
-    const filteredCountry = countries.map((country) => {
-      country.capital[0].includes((filtered))
-    })
+  //   setFilteredCountries(filteredCountries)
+  // },[Countries])
+  console.log("Countries", countries)
+  console.log("FIlerered", filteredCountries)
 
-    setFilter(filteredCountry)
+  // const searchField = (e) => {
+  //   const searchFieldString = e.target.value.toLocaleLowerCase()
+  //   setSearch(searchFieldString)
+  // }
+  
 
-    console.log("filter",filteredCountry)
-  }
-
-
-  console.log("State",countries)
+  // console.log("Filtered",filteredCountries)
 
   return (
     <div className="App">
       <Navigation/>
-      <Countries countries={countries} filter={filterCountries}/>
+      {/* <Search filter={searchField}/>
+      <Countries countries={filteredCountries} filter={searchField}/> */}
     </div>
   );
 }

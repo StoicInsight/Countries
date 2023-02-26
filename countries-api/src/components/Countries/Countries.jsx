@@ -3,11 +3,10 @@ import './Countries.styles.scss'
 import CountryItem from '../Country-Item/Country-Item'
 import Search from '../Search/Search'
 
-const Countries = ({countries, filter}) => {
+const Countries = ({countries}) => {
 
   return (
     <div className='countries-wrap'>
-      {/* <Search filter={filter}/> */}
       <CountryItem countries={countries}/>
     </div>
   )
